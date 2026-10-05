@@ -280,9 +280,53 @@ Meeting: 10 PM EAT Daily
 <div id="ggBibleFloat" onclick="openAbba()"><div class="book">📖</div><div class="tag">MESSAGE FROM ABBA FATHER</div><div class="hint">CLICK ME</div></div>
 <div id="ggAbbaModal" onclick="if(event.target.id==='ggAbbaModal')closeAbbaDirect()"><div class="box"><div class="from" id="abbaTime">GOOD EVENING • A MESSAGE FOR YOU</div><div class="greet" id="abbaGreet">Karibu Nyumbani, My Child</div><div class="verse"><span id="abbaVerse"></span><b id="abbaRef"></b></div><button class="btnClose" onclick="closeAbbaDirect()">AMEN • CONTINUE</button></div></div>
 <script>
-(function(){const h=new Date().getHours();let t="",g="",v="",r="";if(h<12){t="GOOD MORNING • A MESSAGE FOR YOU";g="Good Morning, My Child";v="This is the day that the Lord has made; let us rejoice and be glad in it.";r="PSALM 118:24";}else if(h<17){t="GOOD AFTERNOON • A MESSAGE FOR YOU";g="Welcome Home, My Child";v="The steadfast love of the Lord never ceases; his mercies never come to an end.";r="LAMENTATIONS 3:22";}else{t="GOOD EVENING • A MESSAGE FOR YOU";g="Karibu Nyumbani, My Child";v="Come to me, all you who are weary and burdened, and I will give you rest.";r="MATTHEW 11:28";}document.getElementById('abbaTime').textContent=t;document.getElementById('abbaGreet').textContent=g;document.getElementById('abbaVerse').textContent=v;document.getElementById('abbaRef').textContent=r;})();
+const verses = [
+{v:"This is the day that the Lord has made; let us rejoice and be glad in it.",r:"PSALM 118:24"},
+{v:"The Lord is my shepherd, I lack nothing.",r:"PSALM 23:1"},
+{v:"For I know the plans I have for you, declares the Lord, plans to prosper you.",r:"JEREMIAH 29:11"},
+{v:"Come to me, all you who are weary and burdened, and I will give you rest.",r:"MATTHEW 11:28"},
+{v:"The steadfast love of the Lord never ceases; his mercies never come to an end.",r:"LAMENTATIONS 3:22"},
+{v:"But those who hope in the Lord will renew their strength. They will soar on wings like eagles.",r:"ISAIAH 40:31"},
+{v:"I can do all this through him who gives me strength.",r:"PHILIPPIANS 4:13"},
+{v:"The Lord is near to all who call on him.",r:"PSALM 145:18"},
+{v:"Be strong and courageous. Do not be afraid; for the Lord your God will be with you.",r:"JOSHUA 1:9"},
+{v:"Cast all your anxiety on him because he cares for you.",r:"1 PETER 5:7"},
+{v:"The Lord will fight for you; you need only to be still.",r:"EXODUS 14:14"},
+{v:"Trust in the Lord with all your heart and lean not on your own understanding.",r:"PROVERBS 3:5"},
+{v:"Weeping may stay for the night, but rejoicing comes in the morning.",r:"PSALM 30:5"},
+{v:"God is our refuge and strength, an ever-present help in trouble.",r:"PSALM 46:1"},
+{v:"My grace is sufficient for you, for my power is made perfect in weakness.",r:"2 CORINTHIANS 12:9"},
+{v:"Peace I leave with you; my peace I give you.",r:"JOHN 14:27"},
+{v:"The Lord bless you and keep you.",r:"NUMBERS 6:24"},
+{v:"No weapon formed against you shall prosper.",r:"ISAIAH 54:17"},
+{v:"The joy of the Lord is your strength.",r:"NEHEMIAH 8:10"},
+{v:"With God all things are possible.",r:"MATTHEW 19:26"},
+{v:"He heals the brokenhearted and binds up their wounds.",r:"PSALM 147:3"},
+{v:"Let all that you do be done in love.",r:"1 CORINTHIANS 16:14"},
+{v:"The Lord is my light and my salvation—whom shall I fear?",r:"PSALM 27:1"},
+{v:"Be still, and know that I am God.",r:"PSALM 46:10"},
+{v:"Love never fails.",r:"1 CORINTHIANS 13:8"},
+{v:"Your word is a lamp for my feet, a light on my path.",r:"PSALM 119:105"},
+{v:"I have loved you with an everlasting love.",r:"JEREMIAH 31:3"},
+{v:"In all things God works for the good of those who love him.",r:"ROMANS 8:28"},
+{v:"The Lord your God is with you, the Mighty Warrior who saves.",r:"ZEPHANIAH 3:17"},
+{v:"Taste and see that the Lord is good.",r:"PSALM 34:8"}
+];
+(function(){
+  const h=new Date().getHours();
+  let timeText="",greetText="";
+  if(h<12){timeText="GOOD MORNING • A MESSAGE FOR YOU";greetText="Good Morning, My Child";}
+  else if(h<17){timeText="GOOD AFTERNOON • A MESSAGE FOR YOU";greetText="Welcome Home, My Child";}
+  else{timeText="GOOD EVENING • A MESSAGE FOR YOU";greetText="Karibu Nyumbani, My Child";}
+  const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(),0,0))/1000/60/60/24);
+  const pick = verses[dayOfYear % verses.length];
+  document.getElementById('abbaTime').textContent=timeText;
+  document.getElementById('abbaGreet').textContent=greetText;
+  document.getElementById('abbaVerse').textContent=pick.v;
+  document.getElementById('abbaRef').textContent=pick.r;
+})();
 function openAbba(){document.getElementById('ggAbbaModal').classList.add('open');document.getElementById('ggBibleFloat').style.display='none';}
 function closeAbbaDirect(){const m=document.getElementById('ggAbbaModal');m.classList.remove('open');setTimeout(()=>{document.getElementById('ggBibleFloat').style.display='flex';},600);}
- </script>
+</script>
 </body>
 </html>

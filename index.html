@@ -223,48 +223,57 @@ Meeting: 10 PM EAT Daily
  tick();setInterval(tick,1000);
 })();
 </script>
- <style>
-#w{position:fixed;inset:0;z-index:99999;background:radial-gradient(ellipse at 40% 10%, #fff8d6 0%, #e6d5a3 25%, #9fb8d4 70%, #7a9ab8 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:Georgia,serif}
-#w .cloud{position:absolute;background:radial-gradient(ellipse, rgba(255,255,255,0.85) 0%, transparent 70%);border-radius:50%;filter:blur(2px)}
-#w .c1{width:500px;height:200px;top:5%;left:-5%;opacity:0.8}
-#w .c2{width:600px;height:250px;bottom:5%;right:-10%;opacity:0.7}
-#w .dust{position:absolute;width:4px;height:4px;background:radial-gradient(circle,#fff8a0 0%,#e6b85c 50%,transparent 70%);border-radius:50%;opacity:0.6;animation:floatDust linear infinite;z-index:1}
-#w .scene{position:relative;z-index:2;text-align:center}
-#w .door{width:285px;height:370px;margin:0 auto;position:relative;background:radial-gradient(ellipse at center, #fff6c5 0%, #ffd87a 35%, #d49a4a 70%);border:10px solid #3d2a14;box-shadow:0 0 0 3px #c9a86a, 0 0 0 6px #3d2a14, 0 25px 70px rgba(0,0,0,0.3);border-radius:4px;overflow:hidden}
-#w .door::before{content:'◍ ◍ ◍ ◍ ◍';position:absolute;top:4px;left:0;right:0;text-align:center;font-size:7px;letter-spacing:10px;color:#c9a86a;opacity:0.9;z-index:4}
-#w .home-inside{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:18px}
-#w .family-hint{font-size:32px;letter-spacing:6px;animation:familyBreathe 3s ease-in-out infinite}
-#w .hand{position:absolute;top:44%;left:52%;font-size:44px;transform:translate(-50%,-50%);animation:reach 4s ease-in-out infinite;filter:drop-shadow(0 0 15px #ffeb9a) drop-shadow(0 0 30px #fff);z-index:3}
-#w h1{margin:26px 0 0 0;color:#3e2710;font-size:40px;font-weight:400;min-height:48px;text-shadow:0 1px 0 #fff}
-#w h2{margin:8px 0 0 0;color:#2b1a0a;font-size:20px;font-weight:700;min-height:28px}
-#w .alive{margin:14px auto 0 auto;max-width:320px;color:#5a3d1a;font-size:15px;line-height:1.5;background:rgba(255,255,255,0.65);padding:10px 18px;border-radius:20px;backdrop-filter:blur(4px);min-height:68px}
-#w .btn{margin-top:20px;padding:14px 38px;border-radius:30px;border:none;background:linear-gradient(180deg,#fff9d0 0%, #e6b85c 100%);color:#3d2710;font-weight:800;letter-spacing:1px;box-shadow:0 8px 25px rgba(0,0,0,0.2);cursor:pointer;opacity:0;transform:translateY(10px);transition:.6s}
-#w .btn.show{opacity:1;transform:translateY(0)}
-#w.off{opacity:0;transform:scale(1.08);pointer-events:none;transition:all 1s ease}
-@keyframes reach{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-47%,-52%) scale(1.08)}}
-@keyframes familyBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
-@keyframes floatDust{from{transform:translateY(100vh) translateX(0)}to{transform:translateY(-10vh) translateX(30px)}}
+<!-- GOLD WELCOME - SILHOUETTE HAND - SIDE BY SIDE TZ/KE -->
+<style>
+#ggWelcome{position:fixed;inset:0;z-index:999999;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:Georgia,serif}
+#ggWelcome .sky{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%, #fff7c2 0%, #ffd86a 22%, #ffb84d 42%, #5a7ab0 85%, #2c3e6b 100%)}
+#ggWelcome .city{position:absolute;bottom:0;width:100%;height:70%;background:linear-gradient(to top, #b8962e 0%, #ffd700 15%, transparent 60%);opacity:0.5}
+#ggWelcome .door{position:relative;z-index:2;width:300px;height:440px;border:5px solid #d4af37;background:linear-gradient(180deg, #1a1208 0%, #4a3520 100%);box-shadow:0 0 0 2px #8c6b2e, 0 0 40px rgba(255,215,0,0.7);padding:7px}
+#ggWelcome .inside{position:absolute;inset:7px;background:radial-gradient(ellipse at 50% 10%, #fff9d0 0%, #ffef8a 25%, #ffcc33 60%);overflow:hidden}
+#ggWelcome .goldStreet{position:absolute;bottom:0;width:100%;height:60%;background:linear-gradient(180deg,#fff9d0 0%,#ffd700 15%,#d4af37 40%);transform:perspective(200px) rotateX(35deg);transform-origin:bottom}
+#ggWelcome .hand{position:absolute;bottom:-8%;left:50%;width:160px;height:210px;background:#0a0a0a;border-radius:45% 45% 35% 35%;transform:translateX(-50%);filter:drop-shadow(0 0 25px #ffea00) drop-shadow(0 0 50px #ffd700);clip-path:polygon(30% 0%,70% 0%,80% 15%,85% 45%,90% 70%,85% 100%,15% 100%,10% 70%,15% 45%,20% 15%);animation:reach 3s ease-in-out infinite;z-index:5}
+#ggWelcome .card{position:relative;z-index:6;margin-top:12px;width:min(94vw,540px);background:rgba(12,10,8,0.88);backdrop-filter:blur(14px);border:1px solid rgba(255,215,0,0.45);border-radius:18px;padding:16px 12px;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+#ggWelcome .cols{display:flex;gap:0}
+#ggWelcome .col{flex:1;padding:4px 12px;text-align:center}
+#ggWelcome .col h2{color:#ffeaa0;font-size:18px;margin:0;font-weight:900;line-height:1.2}
+#ggWelcome .col h3{color:#fff;font-size:13px;margin:6px 0 0 0;font-weight:700}
+#ggWelcome .col p{color:#e8dcc0;font-size:12px;margin:10px 0 0 0;line-height:1.35}
+#ggWelcome .line{width:1px;background:linear-gradient(to bottom,#ffd700,transparent);opacity:0.6}
+#ggWelcome .foot{text-align:center;margin-top:10px}
+#ggWelcome .foot .fam{color:#d4af37;letter-spacing:2.5px;font-size:10px;font-weight:800;display:block;margin-bottom:10px}
+#ggWelcome .btn{width:100%;padding:13px;border-radius:28px;border:0;background:linear-gradient(180deg,#fff9d0 0%,#d4af37 100%);color:#2c1a08;font-weight:900;letter-spacing:0.5px;box-shadow:0 0 22px #ffd700;cursor:pointer}
+#ggWelcome.off{opacity:0;transform:scale(1.12);pointer-events:none;transition:1s}
+@keyframes reach{0%,100%{transform:translateX(-50%) translateY(0) scale(1)}50%{transform:translateX(-50%) translateY(-14px) scale(1.06)}}
 </style>
-<div id="w">
-<div class="cloud c1"></div><div class="cloud c2"></div>
-<div class="scene">
-<div class="door"><div class="hand">🤲🏼</div><div class="home-inside"><div class="family-hint">👨‍👩‍👧‍👦</div></div></div>
-<h1 id="t1"></h1><h2 id="t2"></h2>
-<div class="alive" id="t3"></div>
-<button class="btn" id="b" onclick="goHome()">COME SIT WITH US →</button>
+
+<div id="ggWelcome">
+<div class="sky"></div><div class="city"></div>
+<div style="position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center">
+<div class="door"><div class="inside"><div class="goldStreet"></div><div class="hand"></div></div></div>
+
+<div class="card">
+<div class="cols">
+<div class="col">
+<h2>Nipe Mkono Wako</h2>
+<h3>Karibu Nyumbani kwa Yesu</h3>
+<p>Hutatembea peke yako tena</p>
+<p>Familia yako ipo hapa</p>
+</div>
+<div class="line"></div>
+<div class="col">
+<h2>Give Me Your Hand</h2>
+<h3>Come Home to Jesus</h3>
+<p>You don't walk alone anymore</p>
+<p>Your family is here</p>
 </div>
 </div>
-<script>
-(function(){
-let w=document.getElementById('w');
-for(let i=0;i<12;i++){let d=document.createElement('div');d.className='dust';d.style.left=Math.random()*100+'%';d.style.animationDuration=(8+Math.random()*12)+'s';d.style.animationDelay=Math.random()*5+'s';d.style.width=(2+Math.random()*4)+'px';d.style.height=d.style.width;w.appendChild(d)}
-let t1="Karibu Nyumbani",t2="Your Family Is Here",t3="Alive, laughing, waiting for YOU<br>Global God Generation Family<br><span style='font-size:11px;letter-spacing:2px;opacity:.7'>#LOVEBRINGSUNITY • EAST AFRICA TO THE WORLD</span>";
-let a=document.getElementById('t1'),b=document.getElementById('t2'),c=document.getElementById('t3'),btn=document.getElementById('b');
-function type(el,text,speed,cb){let i=0;el.innerHTML='';let iv=setInterval(()=>{el.innerHTML=text.slice(0,i+1)+(i%2==0?'|':'');i++;if(i>=text.length){clearInterval(iv);el.innerHTML=text;if(cb)cb()}},speed)}
-type(a,t1,90,()=>{setTimeout(()=>{type(b,t2,70,()=>{setTimeout(()=>{c.innerHTML=t3;c.style.animation='familyBreathe 3s ease-in-out infinite';btn.classList.add('show')},400)})},300)})
-window.goHome=function(){w.classList.add('off');setTimeout(()=>w.remove(),1000)}
-setTimeout(()=>{if(w)window.goHome()},12000);
-})();
-</script>
+<div class="foot">
+<span class="fam">GLOBAL GOD GENERATION FAMILY</span>
+<button class="btn" onclick="document.getElementById('ggWelcome').classList.add('off');setTimeout(()=>document.getElementById('ggWelcome').remove(),1000)">INGIA NYUMBANI → ENTER HOME</button>
+</div>
+</div>
+</div>
+</div>
+<!-- END GOLD WELCOME -->
 </body>
 </html>

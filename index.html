@@ -224,16 +224,47 @@ Meeting: 10 PM EAT Daily
 })();
 </script>
  <style>
-#w{position:fixed;inset:0;z-index:9999;background:#0b0e14;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all 1.2s ease}
-#w .e{width:120px;height:120px;border-radius:50%;border:3px solid #d3b86a;border-top-color:transparent;animation:f 1s linear infinite;box-shadow:0 0 30px rgba(211,184,106,0.3)}
-#w h2{margin-top:25px;color:#d3b86a;font-family:serif;letter-spacing:3px;font-size:28px;animation:p 1.5s ease-in-out infinite}
-#w p{color:#fff;opacity:0.7;margin-top:10px;letter-spacing:1px;font-size:14px}
-#w.off{animation:u 1.6s forwards}
-@keyframes f{to{transform:rotate(360deg)}}
-@keyframes p{0%,100%{opacity:1}50%{opacity:0.5}}
-@keyframes u{to{opacity:0;filter:blur(12px);visibility:hidden}}
+#w{position:fixed;inset:0;z-index:99999;background:radial-gradient(ellipse at 40% 10%, #fff8d6 0%, #e6d5a3 25%, #9fb8d4 70%, #7a9ab8 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:Georgia,serif}
+#w .cloud{position:absolute;background:radial-gradient(ellipse, rgba(255,255,255,0.85) 0%, transparent 70%);border-radius:50%;filter:blur(2px)}
+#w .c1{width:500px;height:200px;top:5%;left:-5%;opacity:0.8}
+#w .c2{width:600px;height:250px;bottom:5%;right:-10%;opacity:0.7}
+#w .dust{position:absolute;width:4px;height:4px;background:radial-gradient(circle,#fff8a0 0%,#e6b85c 50%,transparent 70%);border-radius:50%;opacity:0.6;animation:floatDust linear infinite;z-index:1}
+#w .scene{position:relative;z-index:2;text-align:center}
+#w .door{width:285px;height:370px;margin:0 auto;position:relative;background:radial-gradient(ellipse at center, #fff6c5 0%, #ffd87a 35%, #d49a4a 70%);border:10px solid #3d2a14;box-shadow:0 0 0 3px #c9a86a, 0 0 0 6px #3d2a14, 0 25px 70px rgba(0,0,0,0.3);border-radius:4px;overflow:hidden}
+#w .door::before{content:'◍ ◍ ◍ ◍ ◍';position:absolute;top:4px;left:0;right:0;text-align:center;font-size:7px;letter-spacing:10px;color:#c9a86a;opacity:0.9;z-index:4}
+#w .home-inside{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:18px}
+#w .family-hint{font-size:32px;letter-spacing:6px;animation:familyBreathe 3s ease-in-out infinite}
+#w .hand{position:absolute;top:44%;left:52%;font-size:44px;transform:translate(-50%,-50%);animation:reach 4s ease-in-out infinite;filter:drop-shadow(0 0 15px #ffeb9a) drop-shadow(0 0 30px #fff);z-index:3}
+#w h1{margin:26px 0 0 0;color:#3e2710;font-size:40px;font-weight:400;min-height:48px;text-shadow:0 1px 0 #fff}
+#w h2{margin:8px 0 0 0;color:#2b1a0a;font-size:20px;font-weight:700;min-height:28px}
+#w .alive{margin:14px auto 0 auto;max-width:320px;color:#5a3d1a;font-size:15px;line-height:1.5;background:rgba(255,255,255,0.65);padding:10px 18px;border-radius:20px;backdrop-filter:blur(4px);min-height:68px}
+#w .btn{margin-top:20px;padding:14px 38px;border-radius:30px;border:none;background:linear-gradient(180deg,#fff9d0 0%, #e6b85c 100%);color:#3d2710;font-weight:800;letter-spacing:1px;box-shadow:0 8px 25px rgba(0,0,0,0.2);cursor:pointer;opacity:0;transform:translateY(10px);transition:.6s}
+#w .btn.show{opacity:1;transform:translateY(0)}
+#w.off{opacity:0;transform:scale(1.08);pointer-events:none;transition:all 1s ease}
+@keyframes reach{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-47%,-52%) scale(1.08)}}
+@keyframes familyBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+@keyframes floatDust{from{transform:translateY(100vh) translateX(0)}to{transform:translateY(-10vh) translateX(30px)}}
 </style>
-<div id="w"><div class="e"></div><h2>Karibu</h2><p>Global God Generation</p></div>
-<script>setTimeout(()=>{let x=document.getElementById('w');if(x){x.classList.add('off');setTimeout(()=>x.remove(),1600)}} ,2500)</script>
+<div id="w">
+<div class="cloud c1"></div><div class="cloud c2"></div>
+<div class="scene">
+<div class="door"><div class="hand">🤲🏼</div><div class="home-inside"><div class="family-hint">👨‍👩‍👧‍👦</div></div></div>
+<h1 id="t1"></h1><h2 id="t2"></h2>
+<div class="alive" id="t3"></div>
+<button class="btn" id="b" onclick="goHome()">COME SIT WITH US →</button>
+</div>
+</div>
+<script>
+(function(){
+let w=document.getElementById('w');
+for(let i=0;i<12;i++){let d=document.createElement('div');d.className='dust';d.style.left=Math.random()*100+'%';d.style.animationDuration=(8+Math.random()*12)+'s';d.style.animationDelay=Math.random()*5+'s';d.style.width=(2+Math.random()*4)+'px';d.style.height=d.style.width;w.appendChild(d)}
+let t1="Karibu Nyumbani",t2="Your Family Is Here",t3="Alive, laughing, waiting for YOU<br>Global God Generation Family<br><span style='font-size:11px;letter-spacing:2px;opacity:.7'>#LOVEBRINGSUNITY • EAST AFRICA TO THE WORLD</span>";
+let a=document.getElementById('t1'),b=document.getElementById('t2'),c=document.getElementById('t3'),btn=document.getElementById('b');
+function type(el,text,speed,cb){let i=0;el.innerHTML='';let iv=setInterval(()=>{el.innerHTML=text.slice(0,i+1)+(i%2==0?'|':'');i++;if(i>=text.length){clearInterval(iv);el.innerHTML=text;if(cb)cb()}},speed)}
+type(a,t1,90,()=>{setTimeout(()=>{type(b,t2,70,()=>{setTimeout(()=>{c.innerHTML=t3;c.style.animation='familyBreathe 3s ease-in-out infinite';btn.classList.add('show')},400)})},300)})
+window.goHome=function(){w.classList.add('off');setTimeout(()=>w.remove(),1000)}
+setTimeout(()=>{if(w)window.goHome()},12000);
+})();
+</script>
 </body>
 </html>
